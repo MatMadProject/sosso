@@ -5,6 +5,15 @@
   text-align: center;
 }
 
+.container {
+  display: flex;
+  justify-content: center; /* Wyśrodkowanie w poziomie */
+  align-items: center; /* Wyśrodkowanie w pionie */
+  height: 100vh; /* Pełna wysokość ekranu */
+  text-align: center; /* Wyśrodkowanie tekstu */
+  flex-direction: column; /* Układ w kolumnie */
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

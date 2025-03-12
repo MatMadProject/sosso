@@ -1,21 +1,45 @@
 import { useEffect, useState } from "react";
+import './App.css'
 
 function App() {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
+  const [courseName, setCourseName] = useState('');
 
-  useEffect(() => {
-    fetch("http://localhost:5000/")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message))
-      .catch((err) => console.error(err));
-  }, []);
+  const handleAddCourse = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/courses', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: courseName })
+      });
+      
+      const data = await response.json();
+      if (response.ok) {
+        setMessage(`Course added: ${data.name}`);
+      } else {
+        setMessage(`Error: ${data.message}`);
+      }
+    } catch (error) {
+      setMessage('Error connecting to backend');
+    }
+  };
 
   return (
-    <div>
-      <h1>Frontend (React + TypeScript)</h1>
+    <div className="container">
+      <h1>System Obsługi Szkoleń OSP</h1>
+      <h4>Wybierz moduł</h4>
       <p>Message from backend: {message}</p>
+      <input
+        type="text"
+        placeholder="Enter course name"
+        value={courseName}
+        onChange={(e) => setCourseName(e.target.value)}
+      />
+      <button onClick={handleAddCourse}>Add Course</button>
     </div>
   );
-}
+};
 
 export default App;

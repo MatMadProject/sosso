@@ -1,5 +1,5 @@
 import express from 'express';
-import User from '../models/Course';
+import Course from '../models/Course';
 
 const router = express.Router();
 
@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
   const { name } = req.body;
 
   try {
-    const course = new User({
+    const course = new Course({
       name
     });
 
