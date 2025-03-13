@@ -1,6 +1,8 @@
 node_modules/
 .env
 dist/
+app.txt
+
 
 # Logs
 logs

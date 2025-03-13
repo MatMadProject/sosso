@@ -49,3 +49,25 @@
 .read-the-docs {
   color: #888;
 }
+
+.course-btn {
+  background-color: #007bff; 
+  color: white; 
+  width: 400px;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.course-btn:hover {
+  background-color: #0056b3; /* Ciemniejszy niebieski po najechaniu */
+}
+
+.course-btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
+}
+

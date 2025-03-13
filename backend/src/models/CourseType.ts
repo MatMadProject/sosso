@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 // Tworzymy interfejs dla dokumentu User
-interface ICourse extends Document {
+interface ICourseType extends Document {
     name: string;
   }
 
@@ -18,6 +18,6 @@ const courseSchema: Schema = new Schema(
   }
 );
 
-const Course = mongoose.model<ICourse>('Course', courseSchema);
+const CourseType = mongoose.model<ICourseType>('CourseType', courseSchema);
 
-export default Course;
+export default CourseType;
